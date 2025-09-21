@@ -10,7 +10,6 @@ import { FirebaseUserDatasource } from '../src/data/datasources/FirebaseUserData
 import { FirebaseUserRepository } from '../src/data/repositories/FirebaseUserRepository';
 import { LoginUser } from '../src/domain/usecases/LoginUser';
 
-
 export default function LoginScreen() {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -29,6 +28,10 @@ export default function LoginScreen() {
     } else {
       Alert.alert('Error', result.error || 'No se pudo iniciar sesión');
     }
+  };
+
+  const goToRegister = () => {
+    router.push('/Register'); // Redirige a pantalla de registro
   };
 
   return (
@@ -56,6 +59,11 @@ export default function LoginScreen() {
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <ThemedText type="link">Ingresar</ThemedText>
       </TouchableOpacity>
+
+      <ThemedText style={{ marginTop: 20 }}>¿No tienes una cuenta?</ThemedText>
+      <TouchableOpacity style={styles.registerButton} onPress={goToRegister}>
+        <ThemedText type="link">Registrarse</ThemedText>
+      </TouchableOpacity>
     </ThemedView>
   );
 }
@@ -80,6 +88,13 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 25,
     backgroundColor: '#4F46E5',
+    borderRadius: 8,
+  },
+  registerButton: {
+    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#10B981',
     borderRadius: 8,
   },
 });
