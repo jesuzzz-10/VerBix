@@ -15,19 +15,23 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
-      }}>
+      }}
+    >
+      {/* Primer tab: Comida */}
       <Tabs.Screen
-        name="index"
+        name="comida" // app/(tabs)/comida.tsx
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Comida',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="fork.knife" color={color} />,
         }}
       />
+
+      {/* Segundo tab: Bebidas */}
       <Tabs.Screen
-        name="explore"
+        name="bebidas" // app/(tabs)/bebidas.tsx
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Bebidas',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="cup.and.saucer" color={color} />,
         }}
       />
     </Tabs>
